@@ -1,0 +1,81 @@
+---
+interface GithubProfile {
+	name: string;
+	username: string;
+	url: string;
+	description: string;
+	highlights: string[];
+}
+
+interface Props {
+	githubProfile: GithubProfile;
+}
+
+const { githubProfile } = Astro.props;
+---
+
+<section id="github" class="section github-card">
+	<div>
+		<h3>Perfil de GitHub</h3>
+		<p>{githubProfile.description}</p>
+		<a class="btn ghost" href={githubProfile.url} target="_blank" rel="noreferrer"
+			>Ir a @{githubProfile.username}</a
+		>
+	</div>
+	<ul>
+		{githubProfile.highlights.map((item) => <li>{item}</li>)}
+	</ul>
+</section>
+
+<style>
+	.section {
+		padding: 3rem 0;
+	}
+
+	.github-card {
+		border-radius: 1rem;
+		border: 1px solid var(--card-border);
+		background: linear-gradient(140deg, rgba(9, 14, 27, 0.94), rgba(17, 26, 46, 0.65));
+		box-shadow: var(--shadow);
+		padding: 1.4rem;
+		display: grid;
+		grid-template-columns: 1.3fr 1fr;
+		gap: 1.2rem;
+	}
+
+	.github-card p {
+		color: var(--muted);
+		line-height: 1.7;
+	}
+
+	ul {
+		margin: 0;
+		padding-left: 1.2rem;
+		display: grid;
+		gap: 0.6rem;
+	}
+
+	li {
+		color: #d9e6ff;
+	}
+
+	.btn {
+		display: inline-flex;
+		margin-top: 0.7rem;
+		padding: 0.76rem 1.1rem;
+		border-radius: 0.7rem;
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.btn.ghost {
+		border: 1px solid var(--card-border);
+		background: rgba(15, 23, 39, 0.55);
+	}
+
+	@media (max-width: 900px) {
+		.github-card {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

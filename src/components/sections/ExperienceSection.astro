@@ -1,0 +1,62 @@
+---
+interface Experience {
+	year: string;
+	role: string;
+	detail: string;
+}
+
+interface Props {
+	experience: Experience[];
+}
+
+const { experience } = Astro.props;
+---
+
+<section id="experiencia" class="section">
+	<h3>Trayectoria</h3>
+	<div class="timeline">
+		{
+			experience.map((item) => (
+				<article>
+					<small>{item.year}</small>
+					<h4>{item.role}</h4>
+					<p>{item.detail}</p>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.section {
+		padding: 3rem 0;
+	}
+
+	.timeline {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.timeline article {
+		padding: 1.4rem;
+		border-radius: 1rem;
+		border: 1px solid var(--card-border);
+		background: linear-gradient(140deg, rgba(9, 14, 27, 0.94), rgba(17, 26, 46, 0.65));
+		box-shadow: var(--shadow);
+	}
+
+	.timeline h4 {
+		margin: 0.2rem 0 0.7rem;
+		font-size: 1.1rem;
+	}
+
+	.timeline p {
+		color: var(--muted);
+		line-height: 1.7;
+	}
+
+	.timeline small {
+		color: var(--accent);
+		font-weight: 600;
+	}
+</style>
