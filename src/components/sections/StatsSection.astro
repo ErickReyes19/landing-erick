@@ -1,0 +1,49 @@
+---
+interface Stat {
+	value: string;
+	label: string;
+}
+
+interface Props {
+	stats: Stat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="stats-grid">
+	{
+		stats.map((item) => (
+			<article class="glass-card">
+				<h2>{item.value}</h2>
+				<p>{item.label}</p>
+			</article>
+		))
+	}
+</section>
+
+<style>
+	.stats-grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	}
+
+	.glass-card {
+		padding: 1.5rem;
+		border-radius: 1rem;
+		border: 1px solid var(--card-border);
+		background: linear-gradient(140deg, rgba(9, 14, 27, 0.94), rgba(17, 26, 46, 0.65));
+		box-shadow: var(--shadow);
+	}
+
+	.glass-card h2 {
+		font-size: 2.1rem;
+		margin: 0;
+	}
+
+	.glass-card p {
+		color: var(--muted);
+		line-height: 1.7;
+	}
+</style>

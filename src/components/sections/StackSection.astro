@@ -1,0 +1,39 @@
+---
+interface Props {
+	tools: string[];
+}
+
+const { tools } = Astro.props;
+---
+
+<section class="section">
+	<h3>Stack principal</h3>
+	<div class="chips">
+		{tools.map((tool) => <span>{tool}</span>)}
+	</div>
+</section>
+
+<style>
+	.section {
+		padding: 3rem 0;
+	}
+
+	.section h3 {
+		font-size: 1.7rem;
+		margin-top: 0;
+	}
+
+	.chips {
+		display: flex;
+		gap: 0.65rem;
+		flex-wrap: wrap;
+	}
+
+	.chips span {
+		padding: 0.45rem 0.72rem;
+		border-radius: 999px;
+		font-size: 0.84rem;
+		border: 1px solid rgba(124, 140, 255, 0.35);
+		background: rgba(124, 140, 255, 0.09);
+	}
+</style>

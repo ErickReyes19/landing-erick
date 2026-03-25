@@ -1,0 +1,104 @@
+---
+interface Project {
+	title: string;
+	description: string;
+	stack: string[];
+	url: string;
+	year: string;
+}
+
+interface Props {
+	projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section id="proyectos" class="section">
+	<div class="heading-row">
+		<h3>Últimos proyectos</h3>
+		<p>Incluye tus trabajos recientes y enlaces para verlos en vivo.</p>
+	</div>
+	<div class="projects-grid">
+		{
+			projects.map((project) => (
+				<article class="project-card">
+					<small>{project.year}</small>
+					<h4>{project.title}</h4>
+					<p>{project.description}</p>
+					<div class="project-stack">
+						{project.stack.map((item) => <span>{item}</span>)}
+					</div>
+					<a href={project.url} target="_blank" rel="noreferrer">Ver proyecto ↗</a>
+				</article>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.section {
+		padding: 3rem 0;
+	}
+
+	.heading-row {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		align-items: end;
+		flex-wrap: wrap;
+	}
+
+	.heading-row p,
+	.project-card p {
+		color: var(--muted);
+		line-height: 1.7;
+	}
+
+	.projects-grid {
+		margin-top: 1rem;
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	}
+
+	.project-card {
+		padding: 1.4rem;
+		border-radius: 1rem;
+		border: 1px solid var(--card-border);
+		background: linear-gradient(140deg, rgba(9, 14, 27, 0.94), rgba(17, 26, 46, 0.65));
+		box-shadow: var(--shadow);
+		display: grid;
+		gap: 0.8rem;
+	}
+
+	.project-card small {
+		color: var(--accent);
+		font-weight: 600;
+	}
+
+	.project-card h4 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.project-stack {
+		display: flex;
+		gap: 0.65rem;
+		flex-wrap: wrap;
+	}
+
+	.project-stack span {
+		padding: 0.45rem 0.72rem;
+		border-radius: 999px;
+		font-size: 0.84rem;
+		border: 1px solid rgba(124, 140, 255, 0.35);
+		background: rgba(124, 140, 255, 0.09);
+	}
+
+	.project-card a {
+		font-weight: 600;
+		text-decoration: none;
+		color: #b5d4ff;
+	}
+</style>
