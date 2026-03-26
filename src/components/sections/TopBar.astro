@@ -13,10 +13,14 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1.2rem 0;
+		padding: 1rem 1.25rem;
 		position: sticky;
-		top: 0;
+		top: 0.75rem;
+		border-radius: 999px;
+		border: 1px solid rgba(124, 140, 255, 0.28);
+		background: linear-gradient(140deg, rgba(9, 14, 27, 0.86), rgba(17, 26, 46, 0.55));
 		backdrop-filter: blur(12px);
+		box-shadow: 0 10px 32px rgba(4, 9, 20, 0.42);
 		z-index: 10;
 	}
 
@@ -36,6 +40,10 @@
 	}
 
 	@media (max-width: 720px) {
+		.topbar {
+			padding-inline: 1rem;
+		}
+
 		nav {
 			display: none;
 		}

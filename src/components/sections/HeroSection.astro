@@ -58,19 +58,26 @@
 	}
 
 	.profile-frame {
-		padding: 1rem;
-		border-radius: 1.2rem;
-		border: 1px dashed rgba(124, 140, 255, 0.5);
+		padding: 1.1rem;
+		border-radius: 1.5rem;
+		border: 1px solid rgba(124, 140, 255, 0.36);
 		background: linear-gradient(140deg, rgba(9, 14, 27, 0.94), rgba(17, 26, 46, 0.65));
 		text-align: center;
+		box-shadow: var(--shadow);
+		overflow: hidden;
 	}
 
 	.profile-frame img {
-		width: min(320px, 100%);
-		aspect-ratio: 1 / 1;
-		object-fit: cover;
-		border-radius: 1rem;
-		border: 1px solid var(--card-border);
+		display: block;
+		width: 100%;
+		max-width: 350px;
+		margin-inline: auto;
+		aspect-ratio: 4 / 5;
+		object-fit: contain;
+		object-position: center 12%;
+		border-radius: 1.15rem;
+		border: 1px solid rgba(124, 140, 255, 0.25);
+		background: radial-gradient(circle at 20% 20%, rgba(124, 140, 255, 0.17), rgba(9, 14, 27, 0.9));
 	}
 
 	.profile-frame p {
