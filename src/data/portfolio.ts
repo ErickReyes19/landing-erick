@@ -39,7 +39,7 @@ export const projects = [
 		description:
 			'Sistema de suscripcion para la gestion de contenido periodistico.',
 		stack: ['Next.js', 'TypeScript', 'MySQL'],
-		url: 'https://diariotempo.hn/',
+		url: 'https://diariotiempo.hn/',
 		year: '2026'
 	},
 	{
